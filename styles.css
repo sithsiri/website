@@ -1,12 +1,19 @@
 body {
 	font-family: Roboto, Calibri, Verdana, sans-serif;
+	margin: 0;
 }
 
 #top {
 	height: 75px;
 	margin: 0;
-	text-align: center;
+	display: block;
+	margin: 0 auto;
 }
+
 #topdiv {
-	background-color:
+	background-color: #00C2FF;
+}
+
+#body {
+	margin: 20px;
 }
