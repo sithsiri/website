@@ -34,7 +34,7 @@
 	<div id="topdiv">
 		<img src="../media/banner.png" id="top">
 	</div>
-	
+
 	<div id="body">
 		<h2>Are you God?</h2>
     	<p>Take this test to find out!</p>
@@ -61,31 +61,32 @@
     	    <label for="no-pet">No</label>
     	  </li>
     	  <li>
-    	    <p>Are you a cricket? (Not sure? <a href="https://roundrockhighschoolcodeclub.github.io/Cricket_Quiz/cricketquiz.html">Find out!</a>)
+    	    <p>Are you a cricket? (Not sure? <a href="https://roundrockhighschoolcodeclub.github.io/Cricket_Quiz/cricketquiz.html">Find out!</a>)</p>
     	    <input type="radio" id="yes-cricket" name="cricket" value="yes">
     	    <label for="yes-cricket">Yes</label>
     	    <input type="radio" id="no-cricket" name="cricket" value="no">
     	    <label for="no-cricket">No</label>
     	  </li>
     	  <li>
-    	    <p>Do you exist?
+    	    <p>Do you exist?</p>
     	    <input type="radio" id="yes-exist" name="exist" value="yes">
     	    <label for="yes-exist">Yes</label>
-    	    <input type="radio" id="no-exist">
-    	    <label for="no-exist">No</label name="exist" value="no">
+    	    <input type="radio" id="no-exist" name="exist" value="no">
+    	    <label for="no-exist">No</label>
     	  </li>
     	  <li>
-    	    <p>Do you listen to the prayers of every sentient being?
+    	    <p>Do you listen to the prayers of every sentient being?</p>
     	    <input type="radio" id="yes-pray" name="pray" value="yes">
     	    <label for="yes-pray">Yes</label>
-    	    <input type="radio" id="no-pray">
-    	    <label for="no-pray">No</label name="pray" value="no">
+    	    <input type="radio" id="no-pray" name="pray" value="no">
+    	    <label for="no-pray">No</label>
     	  </li>
     	</ol>
 		<script>
 			function results(){
 				if(filled()){
 					document.getElementById("results").style.display = "block";
+					document.getElementById("error").style.display = "none";
 				}
 				else{
 					document.getElementById("error").style.display = "block";
@@ -95,25 +96,32 @@
 				let required = ["prophets", "pet", "pyramid", "cricket", "exist", "pray"];
 				for(let i = 0; i < required.length; i++){
 					let options = document.getElementsByName(required[i]);
-					
+
+					let found = false;
 					for(let i = 0; i < options.length; i++){
-						if(options[i].checked){ break; }
+						if(options[i].checked){
+							found = true;
+							break;
+						}
 					}
+					if(found){ continue; }
+					console.log("Missing ".concat(required[i]))
 					return false;
 				}
 				return true;
 			}
 		</script>
-		<p id="error" style="color: crimson; display: none;">Please fill out all the questions.</p>
+
 		<button class="button" onclick="results();">Get results!</button>
-		<div id="results" class="display: none;">
+		<p id="error" style="color: crimson; display: none;">Please fill out all the questions.</p>
+
+		<div id="results" style="display: none;">
 			<p>Result:</p>
 			<h2>Most likely not God!</h2>
 			<h3>Explanation:</h3>
 			<p>The results indicate it is highly unlikely you are a God. Generally speaking, a God wouldn't need an online test to confirm its own existence.</p>
-			<p style="opacity: 75%;">If you believe these results are in error, please <a href="https://youtu.be/dQw4w9WgXcQ"≥contact us.</a></p>
+			<p style="opacity: 75%;">If you believe these results are in error, please <a href="https://youtu.be/dQw4w9WgXcQ">contact us.</a></p>
 		</div>
 	</div>
-	<br>
 </body>
 </html>
